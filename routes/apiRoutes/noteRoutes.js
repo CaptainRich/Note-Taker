@@ -1,8 +1,8 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 // Import the other modules needed.
-const { filterByQuery, findById, createNewAnimal, validateAnimal } = require('../../lib/animals');
-const { animals } = require('../../db/db.json');
+const { filterByQuery, findById, createNewAnimal, validateAnimal } = require('../../lib/notes');
+const { notes } = require('../../db/db.json');
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // Define an instance of 'Router', since we can't use 'app' here ('app' is instantiated in 'server.js')

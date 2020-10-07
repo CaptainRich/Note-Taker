@@ -6,12 +6,12 @@ const fs   = require( 'fs' );          // file system
 const path = require( 'path' );        // package dealing with path/directory names
 
 // Import the 'api' and 'html' routes for this application from our subdirectories
-//const apiRoutes = require('./routes/apiRoutes');
+const apiRoutes = require('./routes/apiRoutes');
 const htmlRoutes = require('./routes/htmlRoutes');
 
 
-// Setup so the 'animals' JSON file can be used
-//const {animals} = require( './data/animals' );
+// Setup so the 'notes' JSON file can be used
+const {notes} = require( './db/db' );
 
 // Indicate we need to use 'express'
 const express = require('express');
@@ -31,8 +31,8 @@ app.use( express.urlencoded( { extend: true } ) );
 app.use( express.json() );
 
 // Use our routing routines
-//app.use('/api', apiRoutes);
-//app.use('/', htmlRoutes);
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
 // Handle any static web pages that may be needed (.css, .js, .img) to properly
 // form the HTML pages.  We don't need a specific server endpoint for these files.
