@@ -7,7 +7,7 @@ const path = require( 'path' );        // package dealing with path/directory na
 
 // Import the 'api' and 'html' routes for this application from our subdirectories
 //const apiRoutes = require('./routes/apiRoutes');
-//const htmlRoutes = require('./routes/htmlRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
 
 
 // Setup so the 'animals' JSON file can be used
