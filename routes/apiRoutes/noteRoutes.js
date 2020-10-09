@@ -11,15 +11,15 @@ const router = require('express').Router();
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Add the route to the 'notes' data
-router.get( '/notes/', (req, res) => {
+router.get( '/notes', (req, res) => {
 
     let results = notes;
    
     // The query will come from the browser address line, i.e. an API request '?parameter=target'
-    if( req.query ) {
-        results = filterByQuery( req.query, results );
-    }
-
+    // if( req.query ) {
+    //     results = filterByQuery( req.query, results );
+    // }
+    console.log( "Notes from 'get':", results );
     res.json(results);
 });
 
