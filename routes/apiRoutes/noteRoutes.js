@@ -1,8 +1,8 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 // Import the other modules needed.
-const { filterByQuery, findById, createNewAnimal, validateAnimal } = require('../../lib/notes');
-const { notes } = require('../../db/db.json');
+const { findById, createNewNote, validateNote } = require('../../lib/notes');
+const notes = require('../../db/db.json');
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // Define an instance of 'Router', since we can't use 'app' here ('app' is instantiated in 'server.js')
@@ -42,20 +42,25 @@ router.get( '/notes/:id', (req, res) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////
 // Define the 'post' function to store data on the server
 router.post('/notes', (req, res) => {
+
   // The (request) req.body is where the incoming content will be
+  console.log( 'req.body: ', req.body );
 
   // Set the note's ID based on what the next index of the array will be.
-  req.body.id = notes.length.toString();
+  let newNote = req.body;
+  newNote.id  = notes.length;      // this will assign the ID to the physical note number
+  console.log(newNote);
 
-  // Now that we have a new ID, add the note to the JSON file and the database file.  First
-  // validate the data, and if problems, send back a '400 error'.
-  if( !validateNote( req.body ) ) {
+  // // Now that we have a new ID, add the note to the JSON file and the database file.  First
+  // // validate the data, and if problems, send back a '400 error'.
+
+  if( !validateNote( newNote ) ) {
       res.status(400).send('The note is not properly formatted.');
   } else {
-    const animal = createNewNote( req.body, notes );
-    //console.log(req.body);
-    res.json(req.body);
-  };
-} );
+    createNewNote( newNote, notes );
+    
+    res.json(newNote);
+  } 
+});
 
 module.exports = router;
