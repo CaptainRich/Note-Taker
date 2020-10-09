@@ -158,12 +158,10 @@ var renderNoteList = function(notes) {
 // Gets notes from the db and renders them to the sidebar
 var getAndRenderNotes = function() {
 
-  console.log( "In getAndRenderNotes" );
-  
   return getNotes().then(function(data) {
 
-    console.log( "Notes data to be rendered: ", data );
-    console.log( "data.notes[0].title: ", data.notes[0].title );
+    //console.log( "Notes data to be rendered: ", data );
+    //console.log( "data.notes[0].title: ", data.notes[0].title );
 
     // 'data' is a json object that contains the 'notes' array.
     renderNoteList(data.notes);
