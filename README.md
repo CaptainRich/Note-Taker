@@ -45,3 +45,4 @@ The Heroku link is: https://stark-coast-92698.herokuapp.com/
 
 
 ## Application Screen Shot
+![Note-Taker Image](./notes-screen-capture.jpg)

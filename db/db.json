@@ -13,5 +13,10 @@
     "title": "2nd New Note",
     "text": "Sample note text",
     "id": 2
+  },
+  {
+    "title": "Clean Up",
+    "text": "Remove the 'test note' from the 'db.json' file\nbefore submitting the final code/files.",
+    "id": 3
   }
 ]
