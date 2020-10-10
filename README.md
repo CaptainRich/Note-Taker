@@ -6,7 +6,7 @@ Richard Ay, October 2020
 * [Project Objective](#project-objective)
 * [Acceptance Criteria](#acceptance-criteria)
 * [Deployment Link](#deployment-link)
-* [Weather Dashboard Logic](#weather-dashboard-logic)
+* [Note-Taker Logic](#note-taker-logic)
 * [Application Screen Shot](#application-screen-shot)
 
 
@@ -41,7 +41,21 @@ This application is deployed on Heroku.
 The Heroku link is: https://stark-coast-92698.herokuapp.com/
 
 
-## Note Taker Logic
+## Note-Taker Logic
+The application logic is:
+
+1) The main HTML page of the application is just an introductory page.  Clicking on the 'Get started' button brings up the HTML page where all the activity  is controlled.
+
+2) When the 'activity page' loads, the 'get' route reads the  'db.json' file and existing note titles are displayed in the left hand page of the HTML page.
+
+3) Clicking on an existing note title displays the title and note details on the right side of the page.
+
+4) A 'pencil icon' at the upper right of the page header can be used to initialize the right side of the page to enable the definition of a new note.  When the text for a new note is defined, a 'disk icon' appears to facilitate saving the new note.
+
+5) When the 'disk icon' is activated:
+* the new note is 'pushed' onto the end of the 'notes' array,
+* the 'post' route saves the new note to the 'db.json' file,
+* and the new note is added to the html list on the left hand side of the page.
 
 
 ## Application Screen Shot

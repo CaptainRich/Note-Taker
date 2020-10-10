@@ -2,21 +2,16 @@
   {
     "title": "Test Title",
     "text": "Test text",
-    "id": "test_id"
+    "id": 0
   },
   {
-    "title": "New Note",
-    "text": "a new note",
+    "title": "submit final",
+    "text": "turn into Git",
     "id": 1
   },
   {
-    "title": "2nd New Note",
-    "text": "Sample note text",
-    "id": 2
-  },
-  {
-    "title": "Clean Up",
-    "text": "Remove the 'test note' from the 'db.json' file\nbefore submitting the final code/files.",
+    "title": "fix delete",
+    "text": "correct delete function",
     "id": 3
   }
 ]

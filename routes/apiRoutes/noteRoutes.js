@@ -1,7 +1,7 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 // Import the other modules needed.
-const { findById, createNewNote, validateNote } = require('../../lib/notes');
+const { findById, createNewNote, validateNote, deleteNote } = require('../../lib/notes');
 const { v4: uuidv4 } = require('uuid');
 const notes = require('../../db/db.json');
 
@@ -29,6 +29,8 @@ router.get( '/notes', (req, res) => {
 // Define a new route, with a specific ID.  Note a parameter route must follow the non-parameter route
 router.get( '/notes/:id', (req, res) => {
     const result = findById( req.params.id, notes );
+
+    console.log( "In findbyId, result is: ", result );
 
     if( result ) {
         res.json(result);
@@ -68,5 +70,30 @@ router.post('/notes', (req, res) => {
     res.json(newNote);
   } 
 });
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+// Define the 'delete' function to remove data on the server
+router.delete('/notes/:id', (req, res) => {
+
+    // The (request) req.body is where the incoming content will be
+    console.log( 'In delete route.');
+    console.log( 'notes array is: ', notes );
+    console.log( 'req.body: ', req.body );
+  
+    // Set the note's ID based on what the next index of the array will be.
+    let noteID = req.params.id;
+    
+    console.log("ID to be deleted: ", noteID);
+  
+    // // Now that we have a new ID, add the note to the JSON file and the database file.  First
+    // // validate the data, and if problems, send back a '400 error'.
+  
+    deleteNote( noteID, notes );
+  
+      console.log( "After deleteOneNote, notes array is: ", notes );
+      
+      res.json(notes);
+  });
 
 module.exports = router;
