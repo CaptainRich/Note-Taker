@@ -2,6 +2,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 // Import the other modules needed.
 const { findById, createNewNote, validateNote } = require('../../lib/notes');
+const { v4: uuidv4 } = require('uuid');
 const notes = require('../../db/db.json');
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -44,11 +45,14 @@ router.get( '/notes/:id', (req, res) => {
 router.post('/notes', (req, res) => {
 
   // The (request) req.body is where the incoming content will be
+  console.log( 'In post route.');
+  console.log( 'notes array is: ', notes );
   console.log( 'req.body: ', req.body );
 
   // Set the note's ID based on what the next index of the array will be.
   let newNote = req.body;
   newNote.id  = notes.length;      // this will assign the ID to the physical note number
+  //newNote.id = uuidv4();
   console.log(newNote);
 
   // // Now that we have a new ID, add the note to the JSON file and the database file.  First
@@ -58,6 +62,8 @@ router.post('/notes', (req, res) => {
       res.status(400).send('The note is not properly formatted.');
   } else {
     createNewNote( newNote, notes );
+
+    console.log( "After createNewNote, notes array is: ", notes );
     
     res.json(newNote);
   } 

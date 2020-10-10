@@ -36,7 +36,9 @@ then that note appears in the right-hand column.
 6) When I click on the Write icon in the navigation at the top of the page
 then I am presented with empty fields to enter a new note title and the note’s text in the right-hand column.
 
-## <span style="color:blue">Deployment Link</span>
+## Deployment Link
+This application is deployed on Heroku.  
+The Heroku link is: https://stark-coast-92698.herokuapp.com/
 
 
 ## Note Taker Logic

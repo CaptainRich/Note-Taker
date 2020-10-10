@@ -17,7 +17,7 @@ var getNotes = function() {
 
   return $.ajax({
     url: "/api/notes",
-    type: "GET"
+    method: "GET"
   });
 };
 
@@ -25,13 +25,13 @@ var getNotes = function() {
 // A function for saving a note to the db
 // '$.ajax' performs an asynchronous AJAX request, here a 'post'
 var saveNote = function(note) {
-  console.log( "Note is: " + note );
+  console.log( "Note is: " , note );
 
   return $.ajax({
     url: "/api/notes",
     data: note,
-    type: "POST"
-    //method: "POST"
+    //type: "POST"
+    method: "POST"
   });
 };
 
@@ -42,7 +42,7 @@ var saveNote = function(note) {
 var deleteNote = function(id) {
   return $.ajax({
     url: "api/notes/" + id,
-    type: "DELETE"
+    method: "DELETE"
   });
 };
 
@@ -73,7 +73,7 @@ var handleNoteSave = function() {
     text: $noteText.val()
   };
 
-  console.log( "newNote is: " + newNote );
+  console.log( "newNote is: " ,  newNote.title );
 
   saveNote(newNote).then(function(data) {
     getAndRenderNotes();
@@ -134,6 +134,8 @@ var handleRenderSaveBtn = function() {
 // Render's the list of note titles
 var renderNoteList = function(notes) {
 
+  console.log( "In renderNoteList, notes.length = ", notes.length );
+
   $noteList.empty();
 
   var noteListItems = [];
@@ -160,11 +162,11 @@ var getAndRenderNotes = function() {
 
   return getNotes().then(function(data) {
 
-    //console.log( "Notes data to be rendered: ", data );
-    //console.log( "data.notes[0].title: ", data.notes[0].title );
+    console.log( "Notes data to be rendered: ", data );
+    console.log( "data.notes[0].title: ", data[0].title );
 
     // 'data' is a json object that contains the 'notes' array.
-    renderNoteList(data.notes);
+    renderNoteList(data);
   });
 };
 
