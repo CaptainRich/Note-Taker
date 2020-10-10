@@ -14,8 +14,6 @@ var activeNote = {};
 // '$.ajax' performs an asynchronous AJAX request, here a 'get'
 var getNotes = function() {
 
-  console.log( "In getNotes" );
-
   return $.ajax({
     url: "/api/notes",
     method: "GET"
@@ -26,7 +24,6 @@ var getNotes = function() {
 // A function for saving a note to the db
 // '$.ajax' performs an asynchronous AJAX request, here a 'post'
 var saveNote = function(note) {
-  console.log( "Note is: " , note );
 
   return $.ajax({
     url: "/api/notes",
@@ -74,8 +71,6 @@ var handleNoteSave = function() {
     text: $noteText.val()
   };
 
-  console.log( "newNote is: " ,  newNote.title );
-
   saveNote(newNote).then(function(data) {
     getAndRenderNotes();
     renderActiveNote();
@@ -85,7 +80,6 @@ var handleNoteSave = function() {
 // BONUS Delete the clicked note
 var handleNoteDelete = function(event) {
 
-  console.log( "In handleNoteDelete" );
 
   // prevents the click listener for the list from being called when the button inside of it is clicked
   event.stopPropagation();
@@ -99,7 +93,7 @@ var handleNoteDelete = function(event) {
   }
 
   console.log( "Delete ID is: ", note.id );
-  
+
   deleteNote(note.id).then(function() {
     getAndRenderNotes();
     renderActiveNote();
@@ -139,8 +133,6 @@ var handleRenderSaveBtn = function() {
 // Render's the list of note titles
 var renderNoteList = function(notes) {
 
-  console.log( "In renderNoteList, notes.length = ", notes.length );
-
   $noteList.empty();
 
   var noteListItems = [];
@@ -167,8 +159,8 @@ var getAndRenderNotes = function() {
 
   return getNotes().then(function(data) {
 
-    console.log( "Notes data to be rendered: ", data );
-    console.log( "data.notes[0].title: ", data[0].title );
+    //console.log( "Notes data to be rendered: ", data );
+    //console.log( "data.notes[0].title: ", data[0].title );
 
     // 'data' is a json object that contains the 'notes' array.
     renderNoteList(data);

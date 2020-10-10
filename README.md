@@ -53,9 +53,15 @@ The application logic is:
 4) A 'pencil icon' at the upper right of the page header can be used to initialize the right side of the page to enable the definition of a new note.  When the text for a new note is defined, a 'disk icon' appears to facilitate saving the new note.
 
 5) When the 'disk icon' is activated:
+* the Math.random function is used to generate an ID number between 0 and 4999, for the new note,
 * the new note is 'pushed' onto the end of the 'notes' array,
-* the 'post' route saves the new note to the 'db.json' file,
+* the 'post' route rewrites all notes to the 'db.json' file,
 * and the new note is added to the html list on the left hand side of the page.
+
+6) When the delete (trash can icon) operation is invoked, the associated ID (of the selected note) is passed to the route and:
+* the selected note is removed from the 'notes' array,
+* the modified array is written to the 'db.json' file,
+* the modified array is redisplayed on the left side of the HTML page.
 
 
 ## Application Screen Shot

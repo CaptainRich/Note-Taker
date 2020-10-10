@@ -1,17 +1,22 @@
 [
   {
-    "title": "Test Title",
-    "text": "Test text",
-    "id": 0
+    "title": "First Note - Assignment",
+    "text": "Finish assignment and turn into Git",
+    "id": 701
   },
   {
-    "title": "submit final",
-    "text": "turn into Git",
-    "id": 1
+    "title": "Move Setup",
+    "text": "A note to remember to setup apartment movers.",
+    "id": 499
   },
   {
-    "title": "fix delete",
-    "text": "correct delete function",
-    "id": 3
+    "title": "House Chores",
+    "text": "Cut the grass.\nTake out the trash",
+    "id": 127
+  },
+  {
+    "title": "Dog chores",
+    "text": "Buy more dog food.\nClean up the lawn.",
+    "id": 1946
   }
 ]

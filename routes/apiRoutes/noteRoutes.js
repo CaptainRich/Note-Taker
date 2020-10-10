@@ -47,13 +47,11 @@ router.get( '/notes/:id', (req, res) => {
 router.post('/notes', (req, res) => {
 
   // The (request) req.body is where the incoming content will be
-  console.log( 'In post route.');
-  console.log( 'notes array is: ', notes );
-  console.log( 'req.body: ', req.body );
 
   // Set the note's ID based on what the next index of the array will be.
   let newNote = req.body;
-  newNote.id  = notes.length;      // this will assign the ID to the physical note number
+  newNote.id = Math.floor( Math.random() * 5000 );      // a random ID between 0 and 4999
+  //newNote.id  = notes.length;      // this will assign the ID to the physical note number
   //newNote.id = uuidv4();
   console.log(newNote);
 
@@ -65,7 +63,6 @@ router.post('/notes', (req, res) => {
   } else {
     createNewNote( newNote, notes );
 
-    console.log( "After createNewNote, notes array is: ", notes );
     
     res.json(newNote);
   } 
@@ -77,11 +74,10 @@ router.post('/notes', (req, res) => {
 router.delete('/notes/:id', (req, res) => {
 
     // The (request) req.body is where the incoming content will be
-    console.log( 'In delete route.');
-    console.log( 'notes array is: ', notes );
-    console.log( 'req.body: ', req.body );
+
   
     // Set the note's ID based on what the next index of the array will be.
+    // Here the ID is passed in directly, we need the parameter, not the body
     let noteID = req.params.id;
     
     console.log("ID to be deleted: ", noteID);
@@ -90,8 +86,6 @@ router.delete('/notes/:id', (req, res) => {
     // // validate the data, and if problems, send back a '400 error'.
   
     deleteNote( noteID, notes );
-  
-      console.log( "After deleteOneNote, notes array is: ", notes );
       
       res.json(notes);
   });
