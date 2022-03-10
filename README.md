@@ -1,10 +1,11 @@
 # Note Taker Project
 
-Richard Ay, October 2020
+Richard Ay, (October 2020, *updated March 2022*)
 
 ## Table of Contents
 * [Project Objective](#project-objective)
 * [Acceptance Criteria](#acceptance-criteria)
+* [Technologies Used](#technologies-used)
 * [Deployment Link](#deployment-link)
 * [Note-Taker Logic](#note-taker-logic)
 * [Application Screen Shot](#application-screen-shot)
@@ -36,9 +37,17 @@ then that note appears in the right-hand column.
 6) When I click on the Write icon in the navigation at the top of the page
 then I am presented with empty fields to enter a new note title and the note’s text in the right-hand column.
 
+## Technologies Used
+
+* Node.js
+* Express.js
+* objects
+* JSON 
+* npm
+
 ## Deployment Link
 This application is deployed on Heroku.  
-The Heroku link is: https://stark-coast-92698.herokuapp.com/
+The Heroku link is: https://notetaker-ay.herokuapp.com/
 
 
 ## Note-Taker Logic

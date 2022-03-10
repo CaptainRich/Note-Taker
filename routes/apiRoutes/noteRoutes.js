@@ -45,13 +45,12 @@ router.get( '/notes/:id', (req, res) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////
 // Define the 'post' function to store data on the server
 router.post('/notes', (req, res) => {
-
   // The (request) req.body is where the incoming content will be
 
-  // Set the note's ID based on what the next index of the array will be.
+  // Set the note's ID based on a random value.
   let newNote = req.body;
   newNote.id = Math.floor( Math.random() * 5000 );      // a random ID between 0 and 4999
-  //newNote.id  = notes.length;      // this will assign the ID to the physical note number
+
   //newNote.id = uuidv4();
   console.log(newNote);
 
@@ -72,22 +71,20 @@ router.post('/notes', (req, res) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////
 // Define the 'delete' function to remove data on the server
 router.delete('/notes/:id', (req, res) => {
-
     // The (request) req.body is where the incoming content will be
 
-  
-    // Set the note's ID based on what the next index of the array will be.
+
     // Here the ID is passed in directly, we need the parameter, not the body
     let noteID = req.params.id;
     
     console.log("ID to be deleted: ", noteID);
   
-    // // Now that we have a new ID, add the note to the JSON file and the database file.  First
-    // // validate the data, and if problems, send back a '400 error'.
+    // // Now that we have a new ID, delete the specified note.
   
     deleteNote( noteID, notes );
       
       res.json(notes);
   });
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
 module.exports = router;
