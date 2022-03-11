@@ -7,7 +7,8 @@ Richard Ay, (October 2020, *updated March 2022*)
 * [Acceptance Criteria](#acceptance-criteria)
 * [Technologies Used](#technologies-used)
 * [Deployment Link](#deployment-link)
-* [Note-Taker Logic](#note-taker-logic)
+* [Note-Taker Logic](#note-taker-logic)## Application Source Code Setup/Structur
+* [Application Source Code Setup/Structure](#application-source-code-setup/structure)
 * [Application Screen Shot](#application-screen-shot)
 
 
@@ -71,6 +72,14 @@ The application logic is:
 * the selected note is removed from the 'notes' array,
 * the modified array is written to the 'db.json' file,
 * the modified array is redisplayed on the left side of the HTML page.
+
+## Application Source Code Setup/Structure
+The directory structure is setup as follows:
+* Root Directory: contains the package files, gitignore, and /db, /lib, /public, /routes
+* /db contains the JSON file holding the "notes" data.
+* /lib contains the Javascript files with the utility functions used by the various routes.  These functions perform the actual low-level work of the application.
+* /public contains additional directories: /assets (with CSS and images), /js (with index.js) to move the note data to/from the JSON file as well as note interaction with the user.  This directory also contains the HTML pages that are stored on the server and when requested, displayed to the user.
+* /routes contains /apiRoutes and /htmlRoutes.  The /apiRoutes directory contains index.js to implement 'route' instead of 'app', as well as the Javascript file for the actual data (notes) routes, to move data to/from the server.  The /htmlRoutes directory contains index.js to request the HTML pages from the server.
 
 
 ## Application Screen Shot
