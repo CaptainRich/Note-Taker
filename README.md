@@ -8,7 +8,7 @@ Richard Ay, (October 2020, *updated March 2022*)
 * [Technologies Used](#technologies-used)
 * [Deployment Link](#deployment-link)
 * [Note-Taker Logic](#note-taker-logic)## Application Source Code Setup/Structur
-* [Application Source Code Setup/Structure](#application-source-code-setup/structure)
+* [Application Source Code Setup and Structure](#application-source-code-setup-and-structure)
 * [Application Screen Shot](#application-screen-shot)
 
 
@@ -73,7 +73,7 @@ The application logic is:
 * the modified array is written to the 'db.json' file,
 * the modified array is redisplayed on the left side of the HTML page.
 
-## Application Source Code Setup/Structure
+## Application Source Code Setup and Structure
 The directory structure is setup as follows:
 * Root Directory: contains the package files, gitignore, and /db, /lib, /public, /routes
 * /db contains the JSON file holding the "notes" data.
